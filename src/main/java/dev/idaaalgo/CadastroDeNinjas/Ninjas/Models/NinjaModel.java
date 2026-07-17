@@ -1,17 +1,28 @@
-package dev.idaaalgo.CadastroDeNinjas;
+package dev.idaaalgo.CadastroDeNinjas.Ninjas.Models;
 
+import dev.idaaalgo.CadastroDeNinjas.Missoes.Models.MissaoModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "tb_cadastro")
+@Table(name = "tb_ninjas")
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    // Many = ninjas / ToOne = missao
+    @ManyToOne
+    @JoinColumn(name = "missao_id")
+    private MissaoModel missao;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
