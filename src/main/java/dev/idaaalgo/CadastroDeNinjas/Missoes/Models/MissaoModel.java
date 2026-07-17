@@ -20,6 +20,7 @@ public class MissaoModel {
     private Long id;
 
     private String nome;
+
     private String dificuldade;
 
     @OneToMany(mappedBy = "missao") // One = missao / ToMany = ninjas
